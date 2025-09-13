@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "pnpm run -F code-journey watch"
+    "watch": "pnpm run -F code-journey watch",
+    "dev": "pnpm run -F sidebar dev",
+    "build": "pnpm run -F sidebar build"
   },
   "keywords": [],
   "author": "",

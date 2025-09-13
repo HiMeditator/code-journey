@@ -1,13 +1,34 @@
 {
   "name": "code-journey",
   "displayName": "Code Journey",
+  "publisher": "himeditator",
+  "icon": "assets/icons/code-journey.png",
   "description": "",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HiMeditator/code-journey"
+  },
+  "homepage": "https://github.com/HiMeditator/code-journey",
+  "bugs": {
+    "url": "https://github.com/HiMeditator/code-journey/issues"
+  },
+  "qna": "https://github.com/HiMeditator/code-journey/issues",
+  "license": "MIT",
   "engines": {
-    "vscode": "^1.104.0"
+    "vscode": "^1.80.0"
+  },
+  "galleryBanner": {
+    "color": "#1A1A1A",
+    "theme": "dark"
   },
   "categories": [
-    "Other"
+    "Visualization",
+    "Data Science"
+  ],
+  "keywords": [
+    "Log",
+    "Statistics"
   ],
   "activationEvents": [],
   "main": "./dist/extension/extension.js",
@@ -17,7 +38,26 @@
         "command": "extension.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "code-journey",
+          "title": "Code Journey",
+          "icon": "assets/icons/code-journey.svg"
+        }
+      ]
+    },
+    "views": {
+      "code-journey": [
+        {
+          "type": "webview",
+          "id": "code-journey.sidebar",
+          "name": "Code Journey",
+          "icon": "assets/icons/code-journey.svg"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "pnpm run package",
