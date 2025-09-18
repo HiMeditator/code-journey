@@ -1,6 +1,8 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import { MessageSender } from './handler/MessageSender';
+import { RequestHandler } from './handler/RequestHandler';
 
 export class SidebarViewProvider implements vscode.WebviewViewProvider {
   public static readonly viewType = 'code-journey.sidebar';
@@ -18,6 +20,12 @@ export class SidebarViewProvider implements vscode.WebviewViewProvider {
       localResourceRoots: [this._extensionUri]
     };
     webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
+
+    MessageSender.view = webviewView;
+
+    webviewView.webview.onDidReceiveMessage(
+      RequestHandler.handleRequest
+    );
   }
 
   private _getHtmlForWebview(webview: vscode.Webview) {
