@@ -1,7 +1,7 @@
 import { create } from "zustand"
 
 interface VscodeData {
-  time: string
+  language: string,
 }
 
 interface VscodeDataState {
@@ -10,11 +10,13 @@ interface VscodeDataState {
   setProperty: (property: string, value: unknown) => void
 }
 
+const initialState: VscodeData = {
+  language: 'en',
+}
+
 export const useVscodeStore = create<VscodeDataState>((set) => {
   return {
-    vscodeData: {
-      time: ''
-    },
+    vscodeData: initialState,
     setVscodeData: (data) => {
       set(() => ({ vscodeData: data }))
     },
