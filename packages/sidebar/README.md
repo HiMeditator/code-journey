@@ -1,4 +1,10 @@
-# React + TypeScript + Vite
+# Code Journey Sidebar GUI
+
+这是 code-journey 插件的 GUI 部分，使用 React + TypeScript + Vite 构建。
+
+This is the GUI part of the code-journey extension, built with React + TypeScript + Vite.
+
+---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
