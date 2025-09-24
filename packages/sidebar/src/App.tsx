@@ -1,10 +1,13 @@
 import { RouterProvider } from 'react-router-dom'
 import router from './router'
 import { useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
+
 import { useVscodeStore } from './stores/vscodeStore'
 import { postMessage } from '@/utils/vscodeAPI'
 
 function App() {
+  const { i18n } = useTranslation()
   const { setProperty } = useVscodeStore()
   
   useEffect(() => {
@@ -14,6 +17,7 @@ function App() {
       switch(message.command) {
         case 'vsc.language.set':
           setProperty('language', message.language)
+          i18n.changeLanguage(message.language)
           break
       }
     };
@@ -24,7 +28,7 @@ function App() {
       window.removeEventListener('message', handleMessage)
       console.log('handleMessage unmounted')
     }
-  }, [setProperty])
+  }, [i18n, setProperty])
   
   return (
     <>

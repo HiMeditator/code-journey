@@ -2,6 +2,7 @@ import { create } from "zustand"
 
 interface VscodeData {
   language: string,
+  todayWorkTime: number,
 }
 
 interface VscodeDataState {
@@ -12,6 +13,7 @@ interface VscodeDataState {
 
 const initialState: VscodeData = {
   language: 'en',
+  todayWorkTime: 0
 }
 
 export const useVscodeStore = create<VscodeDataState>((set) => {
